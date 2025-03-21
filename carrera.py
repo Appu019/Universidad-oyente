@@ -9,4 +9,6 @@ class Carrera:
     def mostrar_semestres(self):
         print(f"Carrera: {self.nombre}")
         for semestre in self.semestres:
+            print("-------------------------------------------------")
             semestre.mostrar_asignaturas()
+            
