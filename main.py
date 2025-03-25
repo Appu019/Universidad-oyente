@@ -3,13 +3,21 @@ from semestre import Semestre
 from asignatura import Asignatura
 from universitario import Universitario
 from docente import Docente
+from especialidad import Especialidad
 
 def main():
-    # Crear un docente
-    docente1 = Docente("Juan", "Martínez", 45, "M", "RD1233123", "Programación")
-    docente2 = Docente("Pedro", "Gomez", 45, "M", "RD412331", "Redes")
+    # Crear especialidades
+    especialidad1 = Especialidad("Ingeniería de Software", "Sistemas", "Licenciatura", [])
+    especialidad2 = Especialidad("Redes y Telecomunicaciones", "Sistemas", "Licenciatura", [])
     
-    # Crear asignaturas
+    # Crear docentes y asignar especialidades
+    docente1 = Docente("Juan", "Martínez", 45, "M", "RD1233123")
+    docente2 = Docente("Pedro", "Gomez", 45, "M", "RD412331")
+    
+    especialidad1.agregar_docente(docente1)
+    especialidad2.agregar_docente(docente2)
+    
+    # Crear asignaturas y asignar docentes
     asignatura1 = Asignatura("Programación 3", "SIS-133", "2018", docente1)
     asignatura2 = Asignatura("Redes", "SIS-111", "2018", docente2)
     
@@ -27,7 +35,7 @@ def main():
     asignatura2.agregar_estudiante(estudiante3)
     
     # Crear semestres y agregar asignaturas
-    print ("Creando semestres")
+    print("Creando semestres")
     semestre1 = Semestre(1)
     semestre1.agregar_asignatura(asignatura1)
     
