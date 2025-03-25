@@ -73,6 +73,8 @@ def main():
 
     # Mostrar información de la universidad
     universidad.mostrar_facultades()
+    facultad.mostrar_carreras()
+    carrera.mostrar_semestres()
 
 
 if __name__ == "__main__":
