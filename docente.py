@@ -4,7 +4,7 @@ class Docente(Persona):
     def __init__(self, nombre, apellido, edad, sexo, cod_docente):
         self.persona = Persona(nombre, apellido, edad, sexo)
         self.cod_docente = cod_docente
-        self.especialidades = []
+        self.especialidades = []#Lista de especialidades
 
     def agregar_especialidad(self, especialidad):
         if especialidad not in self.especialidades:
