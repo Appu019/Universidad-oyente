@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Persona</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2b3e50;
+            color: #ffffff;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #7996c0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .list-group-item {
+            background-color: #7996c0;
+            color: #ffffff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="text-center mb-4">Formulario Persona</h2>
+            <form method="POST" action="/agregar" id="personaForm">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese su nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido:</label>
+                    <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Ingrese su apellido" required>
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad:</label>
+                    <input type="number" id="edad" name="edad" class="form-control" placeholder="Ingrese su edad" required>
+                </div>
+                <div class="mb-3">
+                    <label for="sexo" class="form-label">Sexo:</label>
+                    <select id="sexo" name="sexo" class="form-select" required>
+                        <option value="" disabled selected>Seleccione su sexo</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Femenino">Femenino</option>
+                        <option value="Otro">Otro</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </form>
+            <ul class="list-group mt-4">
+                <!-- Aquí se mostrarán las personas registradas -->
+            </ul>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('personaForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            const nombre = document.getElementById('nombre').value.trim();
+            const apellido = document.getElementById('apellido').value.trim();
+            const edad = document.getElementById('edad').value.trim();
+            const sexo = document.getElementById('sexo').value;
+
+            if (!nombre || !apellido || !edad || !sexo) {
+                alert('Por favor, complete todos los campos.');
+                return;
+            }
+
+            alert('Formulario enviado correctamente.');
+            this.submit(); // Envía el formulario si todo está completo
+        });
+    </script>
+</body>
+</html>

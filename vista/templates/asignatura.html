@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Asignatura</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .form-container {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .table-container {
+            max-width: 900px;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2 class="text-center mb-4">Formulario Asignatura</h2>
+            <form method="POST" action="/asignatura/agregar" id="asignaturaForm">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre de la Asignatura</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el nombre de la asignatura" required>
+                </div>
+                <div class="mb-3">
+                    <label for="sigla" class="form-label">Sigla</label>
+                    <input type="text" class="form-control" id="sigla" name="sigla" placeholder="Ingrese la sigla de la asignatura" required>
+                </div>
+                <div class="mb-3">
+                    <label for="plan_estudio" class="form-label">Plan de Estudio</label>
+                    <input type="text" class="form-control" id="plan_estudio" name="plan_estudio" placeholder="Ingrese el plan de estudio" required>
+                </div>
+                <div class="mb-3">
+                    <label for="docente" class="form-label">Docente</label>
+                    <input type="text" class="form-control" id="docente" name="docente" placeholder="Ingrese el nombre del docente" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Registrar Asignatura</button>
+                    <button type="reset" class="btn btn-secondary">Limpiar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tabla para mostrar asignaturas registradas -->
+        <div class="table-container">
+            <h3 class="text-center mb-4">Asignaturas Registradas</h3>
+            <table class="table table-striped table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Sigla</th>
+                        <th>Plan de Estudio</th>
+                        <th>Docente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se deben iterar las asignaturas registradas -->
+                    {% for asignatura in asignaturas %}
+                    <tr>
+                        <td>{{ asignatura.nombre }}</td>
+                        <td>{{ asignatura.sigla }}</td>
+                        <td>{{ asignatura.plan_estudio }}</td>
+                        <td>{{ asignatura.docente }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
