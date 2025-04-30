@@ -1,2 +1,5 @@
 Integrar universidad y facultad
 proyecto de prueba terminado
+mas metodo de eliminar y editar en cualquiera de las entidades(Mejor si es en todas las entidades)
+el editar debe de devolver la misma ventana emergente para registrar
+python flask video
